@@ -36,4 +36,5 @@ jobs:
           projectName: evergreen-landscaping-okc
           directory: out
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          wranglerVersion: '3'
 
