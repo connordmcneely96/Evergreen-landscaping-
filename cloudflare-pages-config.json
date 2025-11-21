@@ -1,0 +1,16 @@
+{
+  "project_name": "evergreen-landscaping-okc",
+  "framework_preset": "nextjs",
+  "production_branch": "main",
+  "root_directory": "/",
+  "build_command": "npm run build",
+  "build_output_directory": "out",
+  "deploy_command": "",
+  "environment_variables": {
+    "NODE_VERSION": "20"
+  },
+  "node_version": "20",
+  "build_cache_enabled": true,
+  "preview_deployments_enabled": true
+}
+
