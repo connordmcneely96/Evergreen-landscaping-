@@ -12,8 +12,8 @@ export default function Navigation() {
     const navLinks = [
         { href: '/', label: 'Home' },
         { href: '/services', label: 'Services' },
-        { href: '/about', label: 'About' },
         { href: '/contact', label: 'Contact' },
+        { href: '/location', label: 'Location' },
     ]
 
     const isActive = (href: string) => {
@@ -22,87 +22,89 @@ export default function Navigation() {
     }
 
     return (
-        <nav className="bg-forestGreen text-white shadow-lg sticky top-0 z-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-16">
-                    {/* Logo */}
-                    <Logo showText={true} size="md" className="text-white" />
+        <header className="bg-white shadow-sm sticky top-0 z-50">
+            {/* Logo Section */}
+            <div className="flex flex-col items-center py-6">
+                <Logo showText={false} size="lg" />
+                <h1 className="text-2xl font-serif font-bold text-forestGreen mt-3 tracking-wide">
+                    EVERGREEN LANDSCAPING
+                </h1>
+                <p className="text-sm text-golden tracking-widest mt-1">
+                    LANDSCAPING & PRESSURE WASHING
+                </p>
+            </div>
 
+            {/* Navigation Bar */}
+            <nav className="border-t border-gray-200">
+                <div className="max-w-4xl mx-auto px-4">
                     {/* Desktop Navigation */}
-                    <div className="hidden md:flex space-x-8">
+                    <div className="hidden md:flex justify-center space-x-12">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive(link.href)
-                                        ? 'bg-freshGreen text-forestGreen'
-                                        : 'text-gray-300 hover:bg-freshGreen/20 hover:text-white'
-                                    }`}
+                                className={`relative py-4 text-sm font-medium transition-colors ${
+                                    isActive(link.href)
+                                        ? 'text-forestGreen'
+                                        : 'text-gray-600 hover:text-forestGreen'
+                                }`}
                             >
                                 {link.label}
+                                {isActive(link.href) && (
+                                    <span className="absolute bottom-0 left-0 right-0 h-[3px] bg-forestGreen" />
+                                )}
                             </Link>
                         ))}
-                        <a
-                            href="/contact"
-                            className="bg-freshGreen hover:bg-green-600 text-forestGreen px-6 py-2 rounded-md text-sm font-semibold transition-colors"
-                        >
-                            Free Quote
-                        </a>
                     </div>
 
                     {/* Mobile menu button */}
-                    <button
-                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        className="md:hidden p-2 rounded-md text-gray-300 hover:bg-freshGreen/20"
-                        aria-label="Toggle menu"
-                    >
-                        <svg
-                            className="h-6 w-6"
-                            fill="none"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
+                    <div className="md:hidden flex justify-center py-3">
+                        <button
+                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            className="p-2 rounded-md text-forestGreen hover:bg-gray-100"
+                            aria-label="Toggle menu"
                         >
-                            {mobileMenuOpen ? (
-                                <path d="M6 18L18 6M6 6l12 12" />
-                            ) : (
-                                <path d="M4 6h16M4 12h16M4 18h16" />
-                            )}
-                        </svg>
-                    </button>
+                            <svg
+                                className="h-6 w-6"
+                                fill="none"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                {mobileMenuOpen ? (
+                                    <path d="M6 18L18 6M6 6l12 12" />
+                                ) : (
+                                    <path d="M4 6h16M4 12h16M4 18h16" />
+                                )}
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-            </div>
+            </nav>
 
             {/* Mobile Navigation */}
             {mobileMenuOpen && (
-                <div className="md:hidden bg-forestGreen border-t border-freshGreen/20">
-                    <div className="px-2 pt-2 pb-3 space-y-1">
+                <div className="md:hidden bg-white border-t border-gray-200">
+                    <div className="px-4 py-2 space-y-1">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.href}
                                 href={link.href}
                                 onClick={() => setMobileMenuOpen(false)}
-                                className={`block px-3 py-2 rounded-md text-base font-medium ${isActive(link.href)
-                                        ? 'bg-freshGreen text-forestGreen'
-                                        : 'text-gray-300 hover:bg-freshGreen/20 hover:text-white'
-                                    }`}
+                                className={`block px-3 py-3 text-center text-sm font-medium border-b border-gray-100 ${
+                                    isActive(link.href)
+                                        ? 'text-forestGreen border-b-2 border-forestGreen'
+                                        : 'text-gray-600 hover:text-forestGreen'
+                                }`}
                             >
                                 {link.label}
                             </Link>
                         ))}
-                        <a
-                            href="/contact"
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="block bg-freshGreen hover:bg-green-600 text-forestGreen px-3 py-2 rounded-md text-base font-semibold text-center"
-                        >
-                            Free Quote
-                        </a>
                     </div>
                 </div>
             )}
-        </nav>
+        </header>
     )
 }
-
