@@ -8,9 +8,9 @@ interface LogoProps {
 
 export default function Logo({ showText = true, size = 'md', className = '' }: LogoProps) {
   const sizeClasses = {
-    sm: 'h-8 w-8',
-    md: 'h-10 w-10',
-    lg: 'h-16 w-16',
+    sm: 'h-[60px] w-[60px]',
+    md: 'h-[80px] w-[80px]',
+    lg: 'h-[120px] w-[120px]',
   }
 
   const textSizes = {
@@ -29,17 +29,16 @@ export default function Logo({ showText = true, size = 'md', className = '' }: L
     <Link href="/" className={`flex items-center space-x-2 ${className}`}>
       <img
         src="/images/evergreen-logo.svg"
-        alt="Evergrow Landscaping Logo"
-        width={size === 'sm' ? 32 : size === 'md' ? 40 : 64}
-        height={size === 'sm' ? 32 : size === 'md' ? 40 : 64}
+        alt="Evergreen Landscaping Logo"
+        width={size === 'sm' ? 60 : size === 'md' ? 80 : 120}
+        height={size === 'sm' ? 60 : size === 'md' ? 80 : 120}
         className={sizeClasses[size]}
       />
       {showText && (
         <span className={`font-bold ${textColors[size]} ${textSizes[size]}`}>
-          Evergrow Landscaping
+          Evergreen Landscaping
         </span>
       )}
     </Link>
   )
 }
-

@@ -22,22 +22,19 @@ export default function Navigation() {
     return (
         <header className="bg-white sticky top-0 z-50">
             {/* Logo Section */}
-            <div className="flex flex-col items-center pt-8 sm:pt-10 pb-4 sm:pb-5 px-4 sm:px-5">
-                {/* Responsive logo size */}
-                <div className="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] md:w-[140px] md:h-[140px]">
-                    <Logo showText={false} size="lg" className="w-full h-full" />
-                </div>
-                <h1 className="text-lg sm:text-[22px] md:text-2xl font-serif font-semibold text-forestGreen mt-3 sm:mt-4 tracking-[1px] text-center">
+            <div className="flex flex-col items-center pt-10 pb-4 px-5">
+                <Logo showText={false} size="lg" />
+                <h1 className="text-[22px] sm:text-[24px] md:text-[26px] font-serif font-bold text-forestGreen mt-4 tracking-[1px] text-center">
                     EVERGREEN LANDSCAPING
                 </h1>
-                <p className="text-[10px] sm:text-[11px] text-golden tracking-[2px] mt-1 font-medium">
+                <p className="text-[11px] sm:text-[12px] text-golden tracking-[2px] mt-1 font-normal uppercase">
                     LANDSCAPING & PRESSURE WASHING
                 </p>
             </div>
 
             {/* Horizontal Scrollable Navigation */}
             <nav
-                className="w-full overflow-x-auto overflow-y-hidden scrollbar-hide"
+                className="w-full overflow-x-auto overflow-y-hidden scrollbar-hide mt-4"
                 style={{
                     WebkitOverflowScrolling: 'touch',
                     scrollBehavior: 'smooth',
@@ -50,7 +47,7 @@ export default function Navigation() {
                         <Link
                             key={link.href}
                             href={link.href}
-                            className={`relative flex-shrink-0 px-5 sm:px-6 md:px-8 py-3 sm:py-4 text-[15px] sm:text-base md:text-[17px] font-medium whitespace-nowrap transition-colors ${
+                            className={`relative flex-shrink-0 px-[30px] py-[15px] text-[17px] font-medium whitespace-nowrap transition-colors ${
                                 isActive(link.href)
                                     ? 'text-forestGreen'
                                     : 'text-forestGreen/70 hover:text-forestGreen'
