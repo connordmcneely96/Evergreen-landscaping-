@@ -22,19 +22,19 @@ export default function Navigation() {
     return (
         <header className="bg-white sticky top-0 z-50">
             {/* Logo Section */}
-            <div className="flex flex-col items-center pt-10 pb-4 px-5">
+            <div className="flex flex-col items-center pt-8 pb-3 px-4">
                 <Logo showText={false} size="lg" />
-                <h1 className="text-[22px] sm:text-[24px] md:text-[26px] font-serif font-bold text-forestGreen mt-4 tracking-[1px] text-center">
+                <h1 className="text-[24px] sm:text-[26px] md:text-[28px] font-serif font-bold text-forestGreen mt-3 tracking-[1px] text-center">
                     EVERGREEN LANDSCAPING
                 </h1>
-                <p className="text-[11px] sm:text-[12px] text-golden tracking-[2px] mt-1 font-normal uppercase">
+                <p className="text-[12px] sm:text-[13px] text-golden tracking-[2px] mt-1 font-normal uppercase">
                     LANDSCAPING & PRESSURE WASHING
                 </p>
             </div>
 
             {/* Horizontal Scrollable Navigation */}
             <nav
-                className="w-full overflow-x-auto overflow-y-hidden scrollbar-hide mt-4"
+                className="w-full overflow-x-auto overflow-y-hidden scrollbar-hide mt-2"
                 style={{
                     WebkitOverflowScrolling: 'touch',
                     scrollBehavior: 'smooth',
@@ -47,7 +47,7 @@ export default function Navigation() {
                         <Link
                             key={link.href}
                             href={link.href}
-                            className={`relative flex-shrink-0 px-[30px] py-[15px] text-[17px] font-medium whitespace-nowrap transition-colors ${
+                            className={`relative flex-shrink-0 px-[28px] py-[12px] text-[18px] font-medium whitespace-nowrap transition-colors ${
                                 isActive(link.href)
                                     ? 'text-forestGreen'
                                     : 'text-forestGreen/70 hover:text-forestGreen'
